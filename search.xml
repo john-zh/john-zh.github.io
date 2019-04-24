@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[sequlize]]></title>
+    <url>%2F2019%2F04%2F23%2Fnode%2Fsequlize%2F</url>
+    <content type="text"><![CDATA[sequlize 是基于 node 的一个 ORM 框架 安装sequlize 本身只是一个 ORM 框架，它只做了对象模型和关系模型的映射，并没有相关数据库的底层驱动。配合 mysql 使用时还要安装数据库的驱动模块。 安装sequelize 1$ yarn add sequelize 安装mysql驱动 1$ yarn add mysql2 使用 初始化 123456789101112131415161718192021import Sequelize from 'sequelize';const config = &#123; database: 'database', // 使用哪个数据库 username: 'username', // 用户名 password: 'password', // 口令 host: 'host', // 主机名 port: 3306 // 端口号，MySQL默认3306&#125;;const sequelize = new Sequelize(config.database, config.username, config.password, &#123; host: config.host, dialect: 'mysql', pool: &#123; max: 5, min: 0, idle: 30000 &#125;&#125;)export default sequelize 初始化对象模型 12345678910111213141516import S from 'sequelize';import sequelize from './sequelize';const Account = sequelize.define('test', &#123; id: &#123; type: S.INTEGER, autoIncrement: true, primaryKey: true &#125;, ip: S.STRING(40), address: S.STRING(34),&#125;, &#123; freezeTableName: true, // 禁止 sequelize 自动在表名后面加 s &#125;)export default Account; 使用对象模型 1234Account.findOne(&#123;where:&#123;id:1&#125;&#125;).then((item) =&gt; &#123;&#125;) // 查找一条Account.findOrCreate(&#123;where:&#123;id:1&#125;&#125;, defaults:&#123;address:''&#125;).then(([item, created]) =&gt; &#123;&#125;) // 查找或者创建Account.findAndCountAll(&#123;where:&#123;ip:'127.0.0.1'&#125;&#125;, limit: 10).then((&#123;count, items&#125;) =&gt; &#123;&#125;) // 查找并统计总数Account.findAll(&#123;where:&#123;ip:'127.0.0.1'&#125;&#125;).then(items =&gt; &#123;&#125;) // 查找所有 文档 官方文档 []]]></content>
+      <tags>
+        <tag>node</tag>
+        <tag>mysql</tag>
+        <tag>sequlize</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Puppeteer]]></title>
+    <url>%2F2019%2F04%2F15%2Fnode%2Fpuppeteer%2F</url>
+    <content type="text"><![CDATA[Puppeteer 是 Google Chrome 团队官方的无界面（Headless）Chrome 工具. 经测试 page 内支持开启 websocket (phantomJS 不支持) 无需安装驱动 ？( 只在 mac 上运行过，不知道是不是已经安装了浏览器) 文档-https://pptr.dev/#?product=Puppeteer&amp;version=v1.14.0]]></content>
+      <tags>
+        <tag>node</tag>
+        <tag>crawler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mysql 笔记]]></title>
+    <url>%2F2019%2F04%2F09%2Fnode%2Fmysql%2F</url>
+    <content type="text"><![CDATA[强制大小写敏感1select * from account where address like BINARY &apos;TZJH%&apos;;]]></content>
+      <tags>
+        <tag>express</tag>
+        <tag>node</tag>
+        <tag>websocket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[express 中使用 websocket]]></title>
+    <url>%2F2019%2F04%2F09%2Fnode%2Fexpress%2Fwebsocket%2F</url>
+    <content type="text"><![CDATA[in file www 123var server = http.createServer(app) var socket = require('../routes/socket')(server)socket.app.use('/api/scan', socket.router) in file socket.js 12345678910111213141516module.exports = (server) =&gt; &#123; var express = require('express') var app = express() var expressWS = require('express-ws')(app, server) module.router = express.Router() module.app = app module.router.ws('/', (ws, req) =&gt; &#123; ws.on('message', msg =&gt; &#123; console.log(msg) ws.send(msg) &#125;) &#125;) return module &#125;]]></content>
+      <tags>
+        <tag>express</tag>
+        <tag>node</tag>
+        <tag>websocket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F04%2F09%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
