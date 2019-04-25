@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[sequlize]]></title>
+    <title><![CDATA[在 egg.js 中使用 es6 的 import 和 export]]></title>
+    <url>%2F2019%2F04%2F25%2Fnode%2Fegg%2Fegg-import-export%2F</url>
+    <content type="text"><![CDATA[安装 esm 1$ yarn add esm 修改 package.json 123456&#123; "scripts": &#123;- "dev": "egg-bin dev"+ "dev": "egg-bin dev -r esm" &#125;&#125;]]></content>
+      <tags>
+        <tag>node</tag>
+        <tag>egg</tag>
+        <tag>es6</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[node 企业级开发框架 egg.js]]></title>
+    <url>%2F2019%2F04%2F25%2Fnode%2Fegg%2Fegg%2F</url>
+    <content type="text"><![CDATA[Node 与 Java 语言 线程 非阻塞I/O 类型 复杂性 Java 多线程 可用 强类型 复杂 Node 单线程 是 弱类型 简单 node 更适合开发 I/O 密集型的应用。虽然 java1.4/1.7 版本中支持了非阻塞 I/O 调用的功能，但是大多数的应用程序和网站并没有去使用。 node 没有强制类型检查，不需要显示的类型转换，代码更易于阅读。虽然可能会出现未编译错误，但是注意编程规范完全可以避免。 node 不需要使用大型的复杂 IDE，开发环境可以热更新，无需等待像 java 一样漫长的编译过程。 Egg.jsEgg.js 是阿里开源的基于 Koa.js (基于 express) 的一个企业级 node 开发框架。 特性 奉行约定优于配置，团队开发严格遵守约定 基于 Koa 开发，性能优异 高度可扩展的插件机制 内置多进程管理 目录结构1234567891011121314151617181920egg-project├── package.json├── app.js (可选)├── agent.js (可选)├── app| ├── router.js│ ├── controller│ ├── service (可选)│ ├── middleware (可选)│ ├── schedule (可选)│ ├── public (可选)│ ├── view (可选)│ └── extend (可选)├── config| ├── config.default.js│ ├── config.prod.js| ├── config.local.js (可选)└── test ├── middleware └── controller 内置对象除了从 Koa.js 继承的4个对象(Application, Context, Request, Response)，还有框架扩展的一些对象(Controller, Service, Helper, Config, Logger) ApplicationApplication 是全局应用对象，只会实例化一个，几乎在任何地方都可以获取到 1234567// app/controller/user.jsclass UserController extends Controller &#123; async fetch() &#123; this.ctx.body = this.app.cache.get(this.ctx.query.id); //this.ctx.body = this.ctx.app.cache.get(this.ctx.query.id); &#125;&#125; ContextContext 是一个请求级别的对象，每次收到请求都会实例化一个 Context 对象，并且在所有 Middleware, Controller 和 Service 中都可以获取到。 12345// Koa v2async function middleware(ctx, next) &#123; // ctx is instance of Context console.log(ctx.query);&#125; Request &amp; ResponseRequest 和 Response 都是请求级别的对象，都会挂载到 Context 对象上面，所以在 Context 对象上就可以获取到。12345678// app/controller/user.jsclass UserController extends Controller &#123; async fetch() &#123; const &#123; app, ctx &#125; = this; const id = ctx.request.query.id; ctx.response.body = app.cache.get(id); &#125;&#125; ControllerController 是 egg.js 提供的一个基类，约定所有 Controller 都要继承该类，该类有下列属性 ctx - 当前请求的 Context 实例 app - 应用的 Application 实例 config - 应用的配置 service - 应用所有的 service logger - 为当前 controller 封装的 logger 对象 引用方式 12345// app/controller/user.jsconst Controller = require('egg').Controller;class UserController extends Controller &#123; // implement&#125; ServiceService 同 Controller 属性一致，约定所有 Service 都要继承该类 应用方式也与 Controller 相似12345// app/service/user.jsconst Service = require('egg').Service;class UserService extends Service &#123; // implement&#125; HelperHelper 相当于我们经常用的 utils，可以在 Context 对象上获取到 123456789// app/controller/user.jsclass UserController extends Controller &#123; async fetch() &#123; const &#123; app, ctx &#125; = this; const id = ctx.query.id; const user = app.cache.get(id); ctx.body = ctx.helper.formatUser(user); &#125;&#125; 自定义 Helper 方法 123456// app/extend/helper.jsmodule.exports = &#123; formatUser(user) &#123; return only(user, [ 'name', 'phone' ]); &#125;&#125;; Config推荐开发遵循配置和代码完全分离的原则，框架支持不同运行环境使用不同的配置 config 对象也几乎在所有地方都可以获取到 Logger框架内置了强大的日志功能，提供了 4 个级别的方法 logger.debug() logger.info() logger.warn() logger.error()]]></content>
+      <tags>
+        <tag>node</tag>
+        <tag>egg</tag>
+        <tag>koa</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sequlize 安装 | 使用 | 文档]]></title>
     <url>%2F2019%2F04%2F23%2Fnode%2Fsequlize%2F</url>
-    <content type="text"><![CDATA[sequlize 是基于 node 的一个 ORM 框架 安装sequlize 本身只是一个 ORM 框架，它只做了对象模型和关系模型的映射，并没有相关数据库的底层驱动。配合 mysql 使用时还要安装数据库的驱动模块。 安装sequelize 1$ yarn add sequelize 安装mysql驱动 1$ yarn add mysql2 使用 初始化 123456789101112131415161718192021import Sequelize from 'sequelize';const config = &#123; database: 'database', // 使用哪个数据库 username: 'username', // 用户名 password: 'password', // 口令 host: 'host', // 主机名 port: 3306 // 端口号，MySQL默认3306&#125;;const sequelize = new Sequelize(config.database, config.username, config.password, &#123; host: config.host, dialect: 'mysql', pool: &#123; max: 5, min: 0, idle: 30000 &#125;&#125;)export default sequelize 初始化对象模型 12345678910111213141516import S from 'sequelize';import sequelize from './sequelize';const Account = sequelize.define('test', &#123; id: &#123; type: S.INTEGER, autoIncrement: true, primaryKey: true &#125;, ip: S.STRING(40), address: S.STRING(34),&#125;, &#123; freezeTableName: true, // 禁止 sequelize 自动在表名后面加 s &#125;)export default Account; 使用对象模型 1234Account.findOne(&#123;where:&#123;id:1&#125;&#125;).then((item) =&gt; &#123;&#125;) // 查找一条Account.findOrCreate(&#123;where:&#123;id:1&#125;&#125;, defaults:&#123;address:''&#125;).then(([item, created]) =&gt; &#123;&#125;) // 查找或者创建Account.findAndCountAll(&#123;where:&#123;ip:'127.0.0.1'&#125;&#125;, limit: 10).then((&#123;count, items&#125;) =&gt; &#123;&#125;) // 查找并统计总数Account.findAll(&#123;where:&#123;ip:'127.0.0.1'&#125;&#125;).then(items =&gt; &#123;&#125;) // 查找所有 文档 官方文档 []]]></content>
+    <content type="text"><![CDATA[sequlize 是基于 node 的一个 ORM 框架 安装sequlize 本身只是一个 ORM 框架，它只做了对象模型和关系模型的映射，并没有相关数据库的底层驱动。配合 mysql 使用时还要安装数据库的驱动模块。 安装sequelize 1$ yarn add sequelize 安装mysql驱动 1$ yarn add mysql2 使用 初始化 sequelize 123456789101112131415161718192021import Sequelize from 'sequelize';const config = &#123; database: 'database', // 使用哪个数据库 username: 'username', // 用户名 password: 'password', // 口令 host: 'host', // 主机名 port: 3306 // 端口号，MySQL默认3306&#125;;const sequelize = new Sequelize(config.database, config.username, config.password, &#123; host: config.host, dialect: 'mysql', pool: &#123; max: 5, min: 0, idle: 30000 &#125;&#125;)export default sequelize 初始化对象模型 12345678910111213141516import S from 'sequelize';import sequelize from './sequelize';const Account = sequelize.define('test', &#123; id: &#123; type: S.INTEGER, autoIncrement: true, primaryKey: true &#125;, ip: S.STRING(40), address: S.STRING(34),&#125;, &#123; freezeTableName: true, // 禁止 sequelize 自动在表名后面加 s &#125;)export default Account; 使用对象模型 1234Account.findOne(&#123;where:&#123;id:1&#125;&#125;).then((item) =&gt; &#123;&#125;) // 查找一条Account.findOrCreate(&#123;where:&#123;id:1&#125;&#125;, defaults:&#123;address:''&#125;).then(([item, created]) =&gt; &#123;&#125;) // 查找或者创建Account.findAndCountAll(&#123;where:&#123;ip:'127.0.0.1'&#125;&#125;, limit: 10).then((&#123;count, items&#125;) =&gt; &#123;&#125;) // 查找并统计总数Account.findAll(&#123;where:&#123;ip:'127.0.0.1'&#125;&#125;).then(items =&gt; &#123;&#125;) // 查找所有 文档 官方文档 []]]></content>
       <tags>
         <tag>node</tag>
         <tag>mysql</tag>
@@ -38,10 +58,5 @@
         <tag>node</tag>
         <tag>websocket</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F04%2F09%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>

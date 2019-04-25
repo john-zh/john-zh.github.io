@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang>
+<html class="theme-next gemini use-motion" lang>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="sequlize 是基于 node 的一个 ORM 框架 安装sequlize 本身只是一个 ORM 框架，它只做了对象模型和关系模型的映射，并没有相关数据库的底层驱动。配合 mysql 使用时还要安装数据库的驱动模块。  安装sequelize  1$ yarn add sequelize  安装mysql驱动  1$ yarn add mysql2 使用 初始化  12345678910111">
+<meta name="description" content="sequlize 是基于 node 的一个 ORM 框架 安装sequlize 本身只是一个 ORM 框架，它只做了对象模型和关系模型的映射，并没有相关数据库的底层驱动。配合 mysql 使用时还要安装数据库的驱动模块。  安装sequelize  1$ yarn add sequelize  安装mysql驱动  1$ yarn add mysql2 使用 初始化 sequelize  1234">
 <meta name="keywords" content="node,mysql,sequlize">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sequlize">
+<meta property="og:title" content="sequlize 安装 | 使用 | 文档">
 <meta property="og:url" content="https://blog.secret-base.site/2019/04/23/node/sequlize/index.html">
 <meta property="og:site_name" content="Secret-Base">
-<meta property="og:description" content="sequlize 是基于 node 的一个 ORM 框架 安装sequlize 本身只是一个 ORM 框架，它只做了对象模型和关系模型的映射，并没有相关数据库的底层驱动。配合 mysql 使用时还要安装数据库的驱动模块。  安装sequelize  1$ yarn add sequelize  安装mysql驱动  1$ yarn add mysql2 使用 初始化  12345678910111">
+<meta property="og:description" content="sequlize 是基于 node 的一个 ORM 框架 安装sequlize 本身只是一个 ORM 框架，它只做了对象模型和关系模型的映射，并没有相关数据库的底层驱动。配合 mysql 使用时还要安装数据库的驱动模块。  安装sequelize  1$ yarn add sequelize  安装mysql驱动  1$ yarn add mysql2 使用 初始化 sequelize  1234">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-23T11:26:18.725Z">
+<meta property="og:updated_time" content="2019-04-24T07:00:42.394Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sequlize">
-<meta name="twitter:description" content="sequlize 是基于 node 的一个 ORM 框架 安装sequlize 本身只是一个 ORM 框架，它只做了对象模型和关系模型的映射，并没有相关数据库的底层驱动。配合 mysql 使用时还要安装数据库的驱动模块。  安装sequelize  1$ yarn add sequelize  安装mysql驱动  1$ yarn add mysql2 使用 初始化  12345678910111">
+<meta name="twitter:title" content="sequlize 安装 | 使用 | 文档">
+<meta name="twitter:description" content="sequlize 是基于 node 的一个 ORM 框架 安装sequlize 本身只是一个 ORM 框架，它只做了对象模型和关系模型的映射，并没有相关数据库的底层驱动。配合 mysql 使用时还要安装数据库的驱动模块。  安装sequelize  1$ yarn add sequelize  安装mysql驱动  1$ yarn add mysql2 使用 初始化 sequelize  1234">
 
 
 
@@ -98,7 +98,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -126,7 +126,7 @@
 
 
 
-  <title>sequlize | Secret-Base</title>
+  <title>sequlize 安装 | 使用 | 文档 | Secret-Base</title>
   
 
 
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">sequlize</h1>
+          <h1 class="post-title" itemprop="name headline">sequlize 安装 | 使用 | 文档</h1>
         
 
         <div class="post-meta">
@@ -337,13 +337,13 @@
 <blockquote>
 <p>安装<code>sequelize</code></p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> yarn add sequelize</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yarn add sequelize</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>安装<code>mysql</code>驱动</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> yarn add mysql2</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> yarn add mysql2</span></span><br></pre></td></tr></table></figure>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><blockquote>
-<p>初始化</p>
+<p>初始化 sequelize</p>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Sequelize <span class="keyword">from</span> <span class="string">'sequelize'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> config = &#123;</span><br><span class="line">    database: <span class="string">'database'</span>, <span class="comment">// 使用哪个数据库</span></span><br><span class="line">    username: <span class="string">'username'</span>, <span class="comment">// 用户名</span></span><br><span class="line">    password: <span class="string">'password'</span>, <span class="comment">// 口令</span></span><br><span class="line">    host: <span class="string">'host'</span>, <span class="comment">// 主机名</span></span><br><span class="line">    port: <span class="number">3306</span> <span class="comment">// 端口号，MySQL默认3306</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sequelize = <span class="keyword">new</span> Sequelize(config.database, config.username, config.password, &#123;</span><br><span class="line">    host: config.host,</span><br><span class="line">    dialect: <span class="string">'mysql'</span>,</span><br><span class="line">    pool: &#123;</span><br><span class="line">        max: <span class="number">5</span>,</span><br><span class="line">        min: <span class="number">0</span>,</span><br><span class="line">        idle: <span class="number">30000</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> sequelize</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -403,6 +403,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/25/node/egg/egg/" rel="prev" title="node 企业级开发框架 egg.js">
+                node 企业级开发框架 egg.js <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -479,7 +483,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -492,7 +496,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -563,7 +567,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -662,6 +666,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
