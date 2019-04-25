@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="express,node,websocket,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,13 @@
 
 
 
-<meta name="description" content="in file www 123var server = http.createServer(app)                  var socket = require(&apos;../routes/socket&apos;)(server)socket.app.use(&apos;/api/scan&apos;, socket.router) in file socket.js 12345678910111213141516">
-<meta name="keywords" content="express,node,websocket">
-<meta property="og:type" content="article">
-<meta property="og:title" content="express 中使用 websocket">
-<meta property="og:url" content="https://blog.secret-base.site/2019/04/09/node/express/websocket/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Secret-Base">
+<meta property="og:url" content="https://blog.secret-base.site/categories/node/index.html">
 <meta property="og:site_name" content="Secret-Base">
-<meta property="og:description" content="in file www 123var server = http.createServer(app)                  var socket = require(&apos;../routes/socket&apos;)(server)socket.app.use(&apos;/api/scan&apos;, socket.router) in file socket.js 12345678910111213141516">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-25T13:02:52.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="express 中使用 websocket">
-<meta name="twitter:description" content="in file www 123var server = http.createServer(app)                  var socket = require(&apos;../routes/socket&apos;)(server)socket.app.use(&apos;/api/scan&apos;, socket.router) in file socket.js 12345678910111213141516">
+<meta name="twitter:title" content="Secret-Base">
 
 
 
@@ -120,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.secret-base.site/2019/04/09/node/express/websocket/">
+  <link rel="canonical" href="https://blog.secret-base.site/categories/node/">
 
 
 
 
 
-  <title>express 中使用 websocket | Secret-Base</title>
+  <title>Category: node | Secret-Base</title>
   
 
 
@@ -145,7 +140,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -271,175 +266,183 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block category">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>node<small>Category</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.secret-base.site/2019/04/09/node/express/websocket/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vision">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Secret-Base">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2019/04/25/node/egg/egg-import-export/" itemprop="url">
+              
+                <span itemprop="name">在 egg.js 中使用 es6 的 import 和 export</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">express 中使用 websocket</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T14:27:50+08:00">
-                2019-04-09
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-25T20:11:09+08:00" content="2019-04-25">
+          04-25
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/node/" itemprop="url" rel="index">
-                    <span itemprop="name">node</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>in file <code>www</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> server = http.createServer(app)                  </span><br><span class="line"><span class="keyword">var</span> socket = <span class="built_in">require</span>(<span class="string">'../routes/socket'</span>)(server)</span><br><span class="line">socket.app.use(<span class="string">'/api/scan'</span>, socket.router)</span><br></pre></td></tr></table></figure>
-<p>in file <code>socket.js</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function">(<span class="params">server</span>) =&gt;</span> &#123;                        </span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> express   = <span class="built_in">require</span>(<span class="string">'express'</span>)                </span><br><span class="line">    <span class="keyword">var</span> app       = express()                         </span><br><span class="line">    <span class="keyword">var</span> expressWS = <span class="built_in">require</span>(<span class="string">'express-ws'</span>)(app, server)</span><br><span class="line">    <span class="built_in">module</span>.router = express.Router()                  </span><br><span class="line"></span><br><span class="line">    <span class="built_in">module</span>.app = app                                  </span><br><span class="line">    <span class="built_in">module</span>.router.ws(<span class="string">'/'</span>, (ws, req) =&gt; &#123;              </span><br><span class="line">        ws.on(<span class="string">'message'</span>, msg =&gt; &#123;                     </span><br><span class="line">            <span class="built_in">console</span>.log(msg)                          </span><br><span class="line">            ws.send(msg)                              </span><br><span class="line">        &#125;)                                            </span><br><span class="line">    &#125;)                                                </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">module</span>                                     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/express/" rel="tag"># express</a>
-          
-            <a href="/tags/node/" rel="tag"># node</a>
-          
-            <a href="/tags/websocket/" rel="tag"># websocket</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/09/node/mysql/" rel="prev" title="mysql 笔记">
-                mysql 笔记 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+      
+        
 
-    <div class="post-spread">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/04/25/node/egg/egg/" itemprop="url">
+              
+                <span itemprop="name">node 企业级开发框架 egg.js</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-25T11:09:26+08:00" content="2019-04-25">
+          04-25
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/04/23/node/sequlize/" itemprop="url">
+              
+                <span itemprop="name">sequlize 安装 | 使用 | 文档</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T15:15:35+08:00" content="2019-04-23">
+          04-23
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/04/15/node/puppeteer/" itemprop="url">
+              
+                <span itemprop="name">Puppeteer</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-15T10:49:00+08:00" content="2019-04-15">
+          04-15
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/04/09/node/mysql/" itemprop="url">
+              
+                <span itemprop="name">mysql 笔记</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-09T14:27:50+08:00" content="2019-04-09">
+          04-09
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/04/09/node/express/websocket/" itemprop="url">
+              
+                <span itemprop="name">express 中使用 websocket</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-09T14:27:50+08:00" content="2019-04-09">
+          04-09
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
       
     </div>
+
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -447,10 +450,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -672,10 +671,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
