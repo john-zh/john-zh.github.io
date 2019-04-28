@@ -91,7 +91,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://blog.secret-base.site/images/egg/egg_koa_express.png">
 <meta property="og:image" content="https://blog.secret-base.site/images/egg/egg_classes.png">
-<meta property="og:updated_time" content="2019-04-26T08:02:13.828Z">
+<meta property="og:updated_time" content="2019-04-28T03:50:53.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node 企业级开发框架 egg.js">
 <meta name="twitter:description" content="Node 与 Java   语言 线程 非阻塞I/O 类型 复杂性     Java 多线程 可用 强类型 复杂   Node 单线程 是 弱类型 简单    node 更适合开发 I/O 密集型的应用。虽然 java1.4/1.7 版本中支持了非阻塞 I/O 调用的功能，但是大多数的应用程序和网站并没有去使用。 node 没有强制类型检查，不需要显示的类型转换，代码更易于阅读。虽然可能会出现未编">
@@ -453,6 +453,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/extend/helper.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  formatUser(user) &#123;</span><br><span class="line">    <span class="keyword">return</span> only(user, [ <span class="string">'name'</span>, <span class="string">'phone'</span> ]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h4><p>推荐开发遵循配置和代码完全分离的原则，框架支持不同运行环境使用不同的配置</p>
 <p><code>config</code> 对象也几乎在所有地方都可以获取到</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/controller/user.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">  <span class="keyword">async</span> fetch() &#123;</span><br><span class="line">    <span class="keyword">let</span> configt = <span class="keyword">this</span>.app.config;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Logger"><a href="#Logger" class="headerlink" title="Logger"></a>Logger</h4><p>框架内置了强大的日志功能，提供了 4 个级别的方法</p>
 <ul>
 <li><code>logger.debug()</code></li>
@@ -460,6 +461,10 @@
 <li><code>logger.warn()</code></li>
 <li><code>logger.error()</code></li>
 </ul>
+<p>在 <code>Application</code>, <code>Context</code>, <code>Controller</code>, <code>Service</code> 上都可以获取到对应的 logger 对象</p>
+<h3 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h3><p>在启动时通过 <code>EGG_SERVER_ENV</code> 参数指定当前运行环境<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> EGG_SERVER_ENV=<span class="built_in">test</span> npm start</span></span><br></pre></td></tr></table></figure></p>
+<p>并且在启动时会加载 <code>config/config.test.js</code>    </p>
+<p>在运行时通过 <code>app.config.env</code> 来获取当前运行环境</p>
 
       
     </div>
@@ -643,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-与-Java"><span class="nav-number">1.</span> <span class="nav-text">Node 与 Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Egg-js"><span class="nav-number">2.</span> <span class="nav-text">Egg.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">2.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构"><span class="nav-number">2.2.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置对象"><span class="nav-number">2.3.</span> <span class="nav-text">内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Application"><span class="nav-number">2.3.1.</span> <span class="nav-text">Application</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Context"><span class="nav-number">2.3.2.</span> <span class="nav-text">Context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request-amp-Response"><span class="nav-number">2.3.3.</span> <span class="nav-text">Request &amp; Response</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Controller"><span class="nav-number">2.3.4.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Service"><span class="nav-number">2.3.5.</span> <span class="nav-text">Service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Helper"><span class="nav-number">2.3.6.</span> <span class="nav-text">Helper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Config"><span class="nav-number">2.3.7.</span> <span class="nav-text">Config</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logger"><span class="nav-number">2.3.8.</span> <span class="nav-text">Logger</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-与-Java"><span class="nav-number">1.</span> <span class="nav-text">Node 与 Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Egg-js"><span class="nav-number">2.</span> <span class="nav-text">Egg.js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特性"><span class="nav-number">2.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录结构"><span class="nav-number">2.2.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置对象"><span class="nav-number">2.3.</span> <span class="nav-text">内置对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Application"><span class="nav-number">2.3.1.</span> <span class="nav-text">Application</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Context"><span class="nav-number">2.3.2.</span> <span class="nav-text">Context</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Request-amp-Response"><span class="nav-number">2.3.3.</span> <span class="nav-text">Request &amp; Response</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Controller"><span class="nav-number">2.3.4.</span> <span class="nav-text">Controller</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Service"><span class="nav-number">2.3.5.</span> <span class="nav-text">Service</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Helper"><span class="nav-number">2.3.6.</span> <span class="nav-text">Helper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Config"><span class="nav-number">2.3.7.</span> <span class="nav-text">Config</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Logger"><span class="nav-number">2.3.8.</span> <span class="nav-text">Logger</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行环境"><span class="nav-number">2.4.</span> <span class="nav-text">运行环境</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -690,6 +695,15 @@
 
 
 
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=66399527";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
