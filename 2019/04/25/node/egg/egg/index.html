@@ -25,6 +25,8 @@
 
 
 
+  <meta name="google-site-verification" content="SWDcUEqIpDgXNcEpeffxJ00GKD6W8r8NRScejo5nM8M">
+
 
 
 
@@ -87,10 +89,13 @@
 <meta property="og:site_name" content="Secret-Base">
 <meta property="og:description" content="Node 与 Java   语言 线程 非阻塞I/O 类型 复杂性     Java 多线程 可用 强类型 复杂   Node 单线程 是 弱类型 简单    node 更适合开发 I/O 密集型的应用。虽然 java1.4/1.7 版本中支持了非阻塞 I/O 调用的功能，但是大多数的应用程序和网站并没有去使用。 node 没有强制类型检查，不需要显示的类型转换，代码更易于阅读。虽然可能会出现未编">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-25T13:02:25.017Z">
+<meta property="og:image" content="https://blog.secret-base.site/images/egg/egg_koa_express.png">
+<meta property="og:image" content="https://blog.secret-base.site/images/egg/egg_classes.png">
+<meta property="og:updated_time" content="2019-04-26T08:02:13.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node 企业级开发框架 egg.js">
 <meta name="twitter:description" content="Node 与 Java   语言 线程 非阻塞I/O 类型 复杂性     Java 多线程 可用 强类型 复杂   Node 单线程 是 弱类型 简单    node 更适合开发 I/O 密集型的应用。虽然 java1.4/1.7 版本中支持了非阻塞 I/O 调用的功能，但是大多数的应用程序和网站并没有去使用。 node 没有强制类型检查，不需要显示的类型转换，代码更易于阅读。虽然可能会出现未编">
+<meta name="twitter:image" content="https://blog.secret-base.site/images/egg/egg_koa_express.png">
 
 
 
@@ -405,6 +410,7 @@
 <p>node 没有强制类型检查，不需要显示的类型转换，代码更易于阅读。虽然可能会出现未编译错误，但是注意编程规范完全可以避免。</p>
 <p>node 不需要使用大型的复杂 IDE，开发环境可以热更新，无需等待像 java 一样漫长的编译过程。</p>
 <h2 id="Egg-js"><a href="#Egg-js" class="headerlink" title="Egg.js"></a>Egg.js</h2><p>Egg.js 是阿里开源的基于 Koa.js (基于 express) 的一个企业级 node 开发框架。</p>
+<p><img src="/images/egg/egg_koa_express.png" alt></p>
 <h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
 <li>奉行约定优于配置，团队开发严格遵守约定</li>
 <li>基于 Koa 开发，性能优异</li>
@@ -413,6 +419,7 @@
 </ul>
 <h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">egg-project</span><br><span class="line">├── package.json</span><br><span class="line">├── app.js (可选)</span><br><span class="line">├── agent.js (可选)</span><br><span class="line">├── app</span><br><span class="line">|   ├── router.js</span><br><span class="line">│   ├── controller</span><br><span class="line">│   ├── service (可选)</span><br><span class="line">│   ├── middleware (可选)</span><br><span class="line">│   ├── schedule (可选)</span><br><span class="line">│   ├── public (可选)</span><br><span class="line">│   ├── view (可选)</span><br><span class="line">│   └── extend (可选)</span><br><span class="line">├── config</span><br><span class="line">|   ├── config.default.js</span><br><span class="line">│   ├── config.prod.js</span><br><span class="line">|   ├── config.local.js (可选)</span><br><span class="line">└── <span class="built_in">test</span></span><br><span class="line">    ├── middleware</span><br><span class="line">    └── controller</span><br></pre></td></tr></table></figure>
 <h3 id="内置对象"><a href="#内置对象" class="headerlink" title="内置对象"></a>内置对象</h3><p>除了从 Koa.js 继承的4个对象(<code>Application</code>, <code>Context</code>, <code>Request</code>, <code>Response</code>)，还有框架扩展的一些对象(<code>Controller</code>, <code>Service</code>, <code>Helper</code>, <code>Config</code>, <code>Logger</code>)</p>
+<p><img src="/images/egg/egg_classes.png" alt></p>
 <h4 id="Application"><a href="#Application" class="headerlink" title="Application"></a>Application</h4><p><code>Application</code> 是全局应用对象，只会实例化一个，几乎在任何地方都可以获取到</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/controller/user.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">  <span class="keyword">async</span> fetch() &#123;</span><br><span class="line">    <span class="keyword">this</span>.ctx.body = <span class="keyword">this</span>.app.cache.get(<span class="keyword">this</span>.ctx.query.id);</span><br><span class="line">    <span class="comment">//this.ctx.body = this.ctx.app.cache.get(this.ctx.query.id);</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h4><p><code>Context</code> 是一个请求级别的对象，每次收到请求都会实例化一个 <code>Context</code> 对象，并且在所有 <code>Middleware</code>, <code>Controller</code> 和 <code>Service</code> 中都可以获取到。</p>
@@ -577,7 +584,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -588,7 +595,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
