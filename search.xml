@@ -34,8 +34,8 @@
         <category>node</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>node</tag>
+        <tag>mysql</tag>
         <tag>sequlize</tag>
       </tags>
   </entry>
