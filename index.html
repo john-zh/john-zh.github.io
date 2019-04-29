@@ -562,6 +562,9 @@
 <p>node 更适合开发 I/O 密集型的应用。虽然 java1.4/1.7 版本中支持了非阻塞 I/O 调用的功能，但是大多数的应用程序和网站并没有去使用。</p>
 <p>node 没有强制类型检查，不需要显示的类型转换，代码更易于阅读。虽然可能会出现未编译错误，但是注意编程规范完全可以避免。</p>
 <p>node 不需要使用大型的复杂 IDE，开发环境可以热更新，无需等待像 java 一样漫长的编译过程。</p>
+<blockquote>
+<p><a href="https://www.infoq.cn/article/why-is-a-java-guy-so-excited-about-node-js-and-javascript" target="_blank" rel="noopener">从 Sun 离职后，我“抛弃”了 Java，拥抱 JavaScript 和 Node</a></p>
+</blockquote>
 <h2 id="Egg-js"><a href="#Egg-js" class="headerlink" title="Egg.js"></a>Egg.js</h2><p>Egg.js 是阿里开源的基于 Koa.js (基于 express) 的一个企业级 node 开发框架。</p>
 <p><img src="/images/egg/egg_koa_express.png" alt></p>
 <h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
@@ -596,7 +599,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/extend/helper.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  formatUser(user) &#123;</span><br><span class="line">    <span class="keyword">return</span> only(user, [ <span class="string">'name'</span>, <span class="string">'phone'</span> ]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h4 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h4><p>推荐开发遵循配置和代码完全分离的原则，框架支持不同运行环境使用不同的配置</p>
 <p><code>config</code> 对象也几乎在所有地方都可以获取到</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/controller/user.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">  <span class="keyword">async</span> fetch() &#123;</span><br><span class="line">    <span class="keyword">let</span> configt = <span class="keyword">this</span>.app.config;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app/controller/user.js</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserController</span> <span class="keyword">extends</span> <span class="title">Controller</span> </span>&#123;</span><br><span class="line">  <span class="keyword">async</span> fetch() &#123;</span><br><span class="line">    <span class="keyword">let</span> config = <span class="keyword">this</span>.app.config;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="Logger"><a href="#Logger" class="headerlink" title="Logger"></a>Logger</h4><p>框架内置了强大的日志功能，提供了 4 个级别的方法</p>
 <ul>
 <li><code>logger.debug()</code></li>
@@ -608,6 +611,62 @@
 <h3 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h3><p>在启动时通过 <code>EGG_SERVER_ENV</code> 参数指定当前运行环境<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> EGG_SERVER_ENV=<span class="built_in">test</span> npm start</span></span><br></pre></td></tr></table></figure></p>
 <p>并且在启动时会加载 <code>config/config.test.js</code>    </p>
 <p>在运行时通过 <code>app.config.env</code> 来获取当前运行环境</p>
+<h3 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h3><p>Egg 是基于 Koa 实现的，所以 Egg 的中间件形式和 Koa 是一样的，都是基于洋葱圈模型。每加一个中间件，就相当于在洋葱外面包了一层。</p>
+<h4 id="中间件洋葱图："><a href="#中间件洋葱图：" class="headerlink" title="中间件洋葱图："></a>中间件洋葱图：</h4><p><img src="https://camo.githubusercontent.com/d80cf3b511ef4898bcde9a464de491fa15a50d06/68747470733a2f2f7261772e6769746875622e636f6d2f66656e676d6b322f6b6f612d67756964652f6d61737465722f6f6e696f6e2e706e67" alt></p>
+<p>所有的请求经过同一个中间件两次，第一次是请求进来的时候，第二次是请求返回的时候。</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>现在有这样一段代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> one = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'&gt;&gt; one'</span>);</span><br><span class="line">  next();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'&lt;&lt; one'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> two = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'&gt;&gt; two'</span>);</span><br><span class="line">  next();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'&lt;&lt; two'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> three = <span class="function">(<span class="params">ctx, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'&gt;&gt; three'</span>);</span><br><span class="line">  next();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'&lt;&lt; three'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">app.use(one);</span><br><span class="line">app.use(two);</span><br><span class="line">app.use(three);</span><br></pre></td></tr></table></figure>
+<p>输出结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; one</span><br><span class="line">&gt;&gt; two</span><br><span class="line">&gt;&gt; three</span><br><span class="line">&lt;&lt; three</span><br><span class="line">&lt;&lt; two</span><br><span class="line">&lt;&lt; one</span><br></pre></td></tr></table></figure>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p>所有中间件都被 push 进一个列表 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 中间件挂载</span></span><br><span class="line"><span class="comment"> * @param &#123;Function&#125; middleware 中间件函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">use(middleware) &#123;</span><br><span class="line">    <span class="keyword">this</span>.middlewares.push(middleware);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>经过循环递归嵌套 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 中间件合并方法，将中间件数组合并为一个中间件</span></span><br><span class="line"><span class="comment"> * @return &#123;Function&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">compose() &#123;</span><br><span class="line">    <span class="comment">// 将middlewares合并为一个函数，该函数接收一个ctx对象</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">createNext</span>(<span class="params">middleware, oldNext</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">                <span class="keyword">await</span> middleware(ctx, oldNext);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> len = <span class="keyword">this</span>.middlewares.length;</span><br><span class="line">        <span class="keyword">let</span> next = <span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve();</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">let</span> currentMiddleware = <span class="keyword">this</span>.middlewares[i];</span><br><span class="line">            next = createNext(currentMiddleware, next);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">await</span> next();</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后变成了 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> allInOne = (ctx) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'&gt;&gt; one'</span>);</span><br><span class="line">  &#123;<span class="comment">//one.next()</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'&gt;&gt; two'</span>);</span><br><span class="line">    &#123;<span class="comment">//two.next()</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'&gt;&gt; three'</span>);</span><br><span class="line">      <span class="comment">//three.next();</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'&lt;&lt; three'</span>);</span><br><span class="line">    &#125;<span class="comment">//two.next()</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'&lt;&lt; two'</span>);</span><br><span class="line">  &#125;<span class="comment">//one.next()</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'&lt;&lt; one'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/mly-zju/blog/issues/9" target="_blank" rel="noopener">从头实现一个 koa 框架</a></p>
+</blockquote>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><h4 id="插件是什么"><a href="#插件是什么" class="headerlink" title="插件是什么"></a>插件是什么</h4><p>一个插件其实就是一个『迷你的应用』，和应用 <code>app</code> 几乎一样：</p>
+<ul>
+<li>它包含了 <code>Service</code>、<code>中间件</code>、<code>配置</code>、<code>框架扩展</code>等等 </li>
+<li>它没有独立的 <code>Router</code> 和 <code>Controller</code></li>
+<li>它没有 <code>plugin.js</code>，只能声明跟其他插件的依赖，而不能决定其他插件的开启与否</li>
+</ul>
+<h4 id="插件能做什么"><a href="#插件能做什么" class="headerlink" title="插件能做什么"></a>插件能做什么</h4><ul>
+<li>扩展内置对象的接口<ul>
+<li><code>app/extend/request.js</code> - 扩展 Koa#Request 类</li>
+<li><code>app/extend/response.js</code> - 扩展 Koa#Response 类</li>
+<li><code>app/extend/context.js</code> - 扩展 Koa#Context 类</li>
+<li><code>app/extend/helper.js</code> - 扩展 Helper 类</li>
+<li><code>app/extend/application.js</code> - 扩展 Application 类</li>
+<li><code>app/extend/agent.js</code> - 扩展 Agent 类</li>
+</ul>
+</li>
+<li>插入自定义中间件</li>
+<li>在应用启动时做一些初始化工作</li>
+<li>设置定时任务</li>
+</ul>
+<h4 id="内置常用的插件"><a href="#内置常用的插件" class="headerlink" title="内置常用的插件"></a>内置常用的插件</h4><ul>
+<li>onerror 统一异常处理</li>
+<li>Session Session 实现</li>
+<li>i18n 多语言</li>
+<li>watcher 文件和文件夹监控</li>
+<li>multipart 文件流式上传</li>
+<li>security 安全</li>
+<li>development 开发环境配置</li>
+<li>logrotator 日志切分</li>
+<li>schedule 定时任务</li>
+<li>static 静态服务器</li>
+<li>jsonp jsonp 支持</li>
+<li>view 模板引擎</li>
+</ul>
+<h3 id="渐进式开发"><a href="#渐进式开发" class="headerlink" title="渐进式开发"></a>渐进式开发</h3><ol>
+<li>最开始的状态 - 只是一个扩展方法</li>
+<li>插件的雏形 - 放到单独的 lib 文件夹(按照插件的目录格式)</li>
+<li>抽成独立的插件 - 发布一个 module</li>
+<li>沉淀到框架 - 将通用的插件整理抽象出一个框架</li>
+</ol>
 
           
         
